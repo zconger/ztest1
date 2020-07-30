@@ -5,6 +5,7 @@ workflows:
   scan-local:
     jobs:
       - stackhawk/hawkscan-local:
+          docker-network: host
           steps:
             - run:
                 name: Create scan_net Network
