@@ -12,3 +12,6 @@ workflows:
             - run:
                 name: Run Local Test Instance, nginx_test, on the scan_net Network
                 command: docker run --rm --detach -p 8080:80 --name nginx_test nginx
+            - run:
+                name: Confidence check scan local
+                command: curl http://localhost:8080
