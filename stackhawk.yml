@@ -1,0 +1,8 @@
+app:
+  applicationId: 7238961d-aff4-46d1-8ebc-9be70e8649ab
+  host: http://localhost:8080
+  env: ${ENV:Develop}
+
+hawk:
+  spider:
+    base: false
