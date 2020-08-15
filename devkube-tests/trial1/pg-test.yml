@@ -28,7 +28,7 @@ spec:
           value: IQoJb3JpZ2luX2VjELz//////////wEaCXVzLXdlc3QtMiJGMEQCIGslDmMpwTm9rSpP/I7TkukHvIgk1W/cVKpk0qxSy/K+AiAiGYMxMzqEPesKto0+96KixD8x1V0Z3YdWEjJ4HZcoryrmAgiV//////////8BEAEaDDg5MDc3NTE0MTg3MyIMyiWPzuSEX84/oqsxKroCmm95wNFKs3j9/zHfmC6TIY82+L5PiX2fotA+Nl+LKaSGjSkfuqhgdVscJw3qTto82EhfdF21YpOjy6/e+PYBlbQZ95t94PnLwASfi/khJNrFiSb+nGcCfNCoCjlbBScFDly/z0Ji70qkJq18wCdVVKOgFtGk8Mz6ihKo0fCrFx4XujSqF1F+9XekqpbQ5oJgu9fKHV88355jmiIyhAjvDZPsXfs1oyw9jLYI3V0yiQ6MKcXT80eAqLA7n/UDLA2hYIUunM5jBresqQ6ZoOjlRtMfVZ9DWc6Q4F2pP57MNwFomBEMSPOIY7DjD4x7zZ8xW7U/TFLTI4wTxD7S0RxBs0Fz4mbl0A3YDtLnSpL7cVDvAuZ54WgvpaRyu7blWch4sUyUVcZWf+vp5PkjpaOoBdFCYgaQvtUusJYw8qvW+QU6pAGInjoxf1WItJkZ/ygjbJZYyCwxlZHdOFpqgpsahCIKBuaq5f/URIaJkFGPRZl2B4bqap3IlfWG2Xou8mhUNGUEMg3uagCmnKTUrrHFzhbWrbqY/chhybBAWy6Rir5y4mM4eE6C6v3zE6EGDUix5NgaGb7UFTaw+mjfI5HYDZWLgBuDBhBG9ARQy/eSJQJ5TGIQsaZsdfGOR35Kexe0P3eHtOPZlg==
 
   containers:
-    - name: pg-beak
+    - name: postgres-beak
       image: postgres
       ports:
         - containerPort: 5432

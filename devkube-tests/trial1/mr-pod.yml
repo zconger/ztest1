@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: mrPod
+  name: mr-pod
 spec:
   restartPolicy: Never
   volumes:
@@ -13,7 +13,7 @@ spec:
       image: debian
       volumeMounts:
         - mountPath: /data
-          name: donor-data
+          name: data
       command: ["/bin/sh"]
       args:
         - -c
@@ -23,4 +23,4 @@ spec:
       image: nginx
       volumeMounts:
         - mountPath: /usr/share/nginx/html
-          name: nginx-data
+          name: data
