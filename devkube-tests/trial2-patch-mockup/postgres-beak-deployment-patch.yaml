@@ -2,7 +2,7 @@ spec:
   template:
     spec:
       volumes:
-        - name: initdb
+        - name: init-dir
           emptyDir: {}
 
       initContainers:
@@ -12,7 +12,7 @@ spec:
           args:
             - s3
             - cp
-            - "s3://backups.sandbox.stackhawk.com/devkube/zconger/postgres/beak.sql"
+            - s3://backups.sandbox.stackhawk.com/devkube/zconger/postgres/beak.sql
             - /docker-entrypoint-initdb.d/
           volumeMounts:
             - mountPath: /docker-entrypoint-initdb.d
@@ -24,8 +24,3 @@ spec:
           - mountPath: /docker-entrypoint-initdb.d
             name: init-dir
       serviceAccountName: devkube-db
-
-#      restartPolicy: Always
-#  selector:
-#    matchLabels:
-#      io.kompose.service: postgres-beak
