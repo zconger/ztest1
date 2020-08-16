@@ -35,4 +35,4 @@ EOF
 # Merge the deployment file with the patch file into a "merged" file
 #yq m postgres-beak-deployment.yaml postgres-beak-deployment-patch.yaml > postgres-beak-deployment-merged.yaml
 
-pg-patch-content | yq m postgres-beak-deployment.yaml -
+pg-patch-content | yq m -PC postgres-beak-deployment.yaml -
