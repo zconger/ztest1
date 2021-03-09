@@ -9,6 +9,16 @@
           "informationUri": "https://docs.stackhawk.com/hawkscan/"
         }
       },
+      "results": [
+        {
+          "message": {
+            "text": "Hey, great job."
+          },
+          "properties": {
+            "Confidence": 5.0
+          }
+        }
+      ],
       "artifacts": [
         {
           "location": {
