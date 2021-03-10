@@ -37,7 +37,8 @@
             }
           ],
           "message": {
-            "text": "Hey, great job."
+            "text": "Scan Results",
+            "markdown": "[Scan Results](https://app.stackhawk.com/scans/a0493c56-67f3-44d4-86a9-371fb22a63af)"
           },
           "ruleId": "1",
           "properties": {
