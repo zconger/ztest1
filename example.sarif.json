@@ -5,7 +5,7 @@
     {
       "tool": {
         "driver": {
-          "name": "StackHawk HawkScan",
+          "name": "HawkScan",
           "version": "0.9.2",
           "semanticVersion": "0.9.2",
           "informationUri": "https://docs.stackhawk.com/hawkscan/",
@@ -29,7 +29,7 @@
       },
       "results": [
         {
-          "level": "none",
+          "level": "note",
           "locations": [
             {
               "id": 1,
@@ -44,8 +44,7 @@
             }
           ],
           "message": {
-            "text": "[Scan Results](https://app.stackhawk.com/scans/79cb89ac-0686-406a-aecd-74c2bea68359)",
-            "markdown": "HawkScan started! See [Scan Results](https://app.stackhawk.com/scans/79cb89ac-0686-406a-aecd-74c2bea68359) for more details."
+            "text": "HawkScan started! See [Scan Results](https://app.stackhawk.com/scans/79cb89ac-0686-406a-aecd-74c2bea68359) for more details."
           },
           "ruleId": "1"
         }
