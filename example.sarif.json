@@ -15,10 +15,10 @@
               "name": "alert/threshold-met",
               "helpUri": "https://docs.stackhawk.com/web-app/scans.html#scan-details-page",
               "help": {
-                "text": "HawkScan found issues that meet or exceed your failure threshold, `hawk.failureThreshold`"
+                "text": "HawkScan found issues that meet or exceed your alert threshold, `hawk.failureThreshold`"
               },
               "shortDescription": {
-                "text": "HawkScan found issues that meet or exceed your failure threshold, `hawk.failureThreshold`"
+                "text": "HawkScan found issues that meet or exceed your alert threshold"
               },
               "properties": {
                 "tags": [
