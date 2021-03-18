@@ -46,7 +46,7 @@
             }
           ],
           "message": {
-            "text": "HawkScan found issues that meet or exceed your failure threshold, `hawk.failureThreshold=MEDIUM`. See [Scan Results](https://app.stackhawk.com/scans/79cb89ac-0686-406a-aecd-74c2bea68359) for more details."
+            "text": "HawkScan found issues that meet or exceed your failure threshold.\n`hawk.failureThreshold=MEDIUM`.\nSee [Scan Results](https://app.stackhawk.com/scans/79cb89ac-0686-406a-aecd-74c2bea68359) for more details."
           },
           "ruleId": "alert/threshold-met"
         }
