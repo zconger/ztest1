@@ -36,6 +36,8 @@ jobs:
             - .
 
   scan-backend-service-stg:
+    requires: 
+      - extract-hawk
     docker:
       - image: stackhawk/hawkscan:latest
     environment:
