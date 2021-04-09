@@ -42,6 +42,9 @@ jobs:
       API_KEY: $HAWK_API_KEY
     resource_class: small
     steps:
+      - run:
+          name: Create $REPO_DIR
+          command: mkdir -p $REPO_DIR
       - attach_workspace:
           at: $REPO_DIR
       - run-stackhawk:
