@@ -6,9 +6,6 @@ commands:
       target_app_name:
         type: string
         default: ""
-#       repo_dir:
-#         type: string
-#         default: ""
     steps:
       - run:
           name: run stackhawk
@@ -40,15 +37,10 @@ jobs:
       - image: stackhawk/hawkscan:latest
     environment:
       ENV_NAME: "ci"
-      API_KEY: $HAWK_API_KEY
-      REPO_DIR: $CIRCLE_WORKING_DIRECTORY
+      API_KEY: "${HAWK_API_KEY}"
+      REPO_DIR: "${CIRCLE_WORKING_DIRECTORY}"
     resource_class: small
     steps:
-#       - run:
-#           name: Create $REPO_DIR
-#           command: mkdir -p $REPO_DIR
-#       - attach_workspace:
-#           at: $REPO_DIR
       - run:
           name: Run some diagnostics
           command: |
