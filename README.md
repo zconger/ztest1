@@ -1,2 +1,2 @@
-# ztest1
-A test repo for nothing in particular
+# 𝓩 ztest1
+A test repo for `hawkscan in circleci`
