@@ -6,9 +6,9 @@ commands:
       target_app_name:
         type: string
         default: ""
-      repo_dir:
-        type: string
-        default: ""
+#       repo_dir:
+#         type: string
+#         default: ""
       api_key:
         type: string
         default: ""
@@ -16,12 +16,10 @@ commands:
       - run:
           name: run stackhawk
           command: |
-            export REPO_DIR=<< parameters.repo_dir >>
-            export API_KEY=<< parameters.api_key >>
             echo "REPO_DIR: ${REPO_DIR}"
             echo "API_KEY: ${API_KEY}"
-            ls << parameters.repo_dir >>
-            cd << parameters.repo_dir >>/<< parameters.target_app_name >>/
+#            ls << parameters.repo_dir >>
+            cd ./<< parameters.target_app_name >>
             shawk stackhawk.yml
 
 jobs:
@@ -48,6 +46,7 @@ jobs:
       ENV_NAME: "ci"
       REPO_DIR: "/home/zap/workspace"
       API_KEY: $HAWK_API_KEY
+      REPO_DIR: $CIRCLE_WORKING_DIRECTORY
     resource_class: small
     steps:
 #       - run:
