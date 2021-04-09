@@ -1,0 +1,54 @@
+version: 2.1
+
+commands:
+  run-stackhawk:
+    parameters:
+      target_app_name:
+        type: string
+        default: ""
+      repo_dir:
+        type: string
+        default: ""
+      api_key:
+        type: string
+        default: ""
+    steps:
+      - run:
+          name: run stackhawk
+          command: |
+            export API_KEY=<< parameters.api_key >>
+            cd << parameters.repo_dir >>/<< parameters.target_app_name >>/
+            shawk stackhawk.yml
+
+jobs:
+  extract-hawk:
+    docker:
+      - image: cimg/base:2021.04
+    steps:
+      - checkout
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+
+  scan-backend-service-stg:
+    docker:
+      - image: stackhawk/hawkscan:latest
+    environment:
+      ENV_NAME: "ci"
+      REPO_DIR: "/tmp/workspace"
+      API_KEY: $HAWK_API_KEY
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: $REPO_DIR
+      - run-stackhawk:
+          target_app_name: backend-service
+          repo_dir: $REPO_DIR
+          api_key: $HAWK_API_KEY    # secret variable configured for this repo in CircleCI
+          
+workflows:
+  hawkscan-test:
+    jobs:
+     - extract-hawk
+     - scan-backend-service-stg
