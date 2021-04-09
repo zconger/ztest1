@@ -30,6 +30,12 @@ jobs:
       - image: cimg/base:2021.04
     steps:
       - checkout
+      - run:
+          name: Run some diagnostics
+          command: |
+            pwd
+            ls
+            env
       - persist_to_workspace:
           root: .
           paths:
@@ -44,11 +50,25 @@ jobs:
       API_KEY: $HAWK_API_KEY
     resource_class: small
     steps:
+#       - run:
+#           name: Create $REPO_DIR
+#           command: mkdir -p $REPO_DIR
+#       - attach_workspace:
+#           at: $REPO_DIR
       - run:
-          name: Create $REPO_DIR
-          command: mkdir -p $REPO_DIR
+          name: Run some diagnostics
+          command: |
+            pwd
+            ls
+            env
       - attach_workspace:
-          at: $REPO_DIR
+          at: .
+      - run:
+          name: Run more diagnostics
+          command: |
+            pwd
+            ls
+            env
       - run-stackhawk:
           target_app_name: backend-service
           repo_dir: $REPO_DIR
