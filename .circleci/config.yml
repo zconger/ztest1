@@ -58,6 +58,6 @@ workflows:
   hawkscan-test:
     jobs:
      - extract-hawk
-     - scan-backend-service-stg
+     - scan-backend-service-stg:
          requires:
            - extract-hawk
