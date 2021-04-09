@@ -1,8 +1,4 @@
 app:
-  applicationId: 7238961d-aff4-46d1-8ebc-9be70e8649ab
-  host: http://localhost:8080
+  applicationId: cd253c08-5140-4892-b3d3-b2a4bcc07f57
+  host: http://example.com
   env: ${ENV:Develop}
-
-hawk:
-  spider:
-    base: false
