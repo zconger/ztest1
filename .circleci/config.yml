@@ -18,6 +18,8 @@ commands:
           command: |
             export REPO_DIR=<< parameters.repo_dir >>
             export API_KEY=<< parameters.api_key >>
+            echo "REPO_DIR: ${REPO_DIR}"
+            echo "API_KEY: ${API_KEY}"
             ls << parameters.repo_dir >>
             cd << parameters.repo_dir >>/<< parameters.target_app_name >>/
             shawk stackhawk.yml
