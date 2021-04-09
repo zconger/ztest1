@@ -16,7 +16,9 @@ commands:
       - run:
           name: run stackhawk
           command: |
+            export REPO_DIR=<< parameters.repo_dir >>
             export API_KEY=<< parameters.api_key >>
+            ls << parameters.repo_dir >>
             cd << parameters.repo_dir >>/<< parameters.target_app_name >>/
             shawk stackhawk.yml
 
