@@ -38,7 +38,7 @@ jobs:
       - image: stackhawk/hawkscan:latest
     environment:
       ENV_NAME: "ci"
-      REPO_DIR: "/tmp/workspace"
+      REPO_DIR: "/home/zap/workspace"
       API_KEY: $HAWK_API_KEY
     resource_class: small
     steps:
