@@ -9,9 +9,6 @@ commands:
 #       repo_dir:
 #         type: string
 #         default: ""
-      api_key:
-        type: string
-        default: ""
     steps:
       - run:
           name: run stackhawk
@@ -68,8 +65,6 @@ jobs:
             env
       - run-stackhawk:
           target_app_name: backend-service
-          repo_dir: $REPO_DIR
-          api_key: $HAWK_API_KEY    # secret variable configured for this repo in CircleCI
           
 workflows:
   hawkscan-test:
