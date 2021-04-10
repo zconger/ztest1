@@ -6,12 +6,20 @@ commands:
       target_app_name:
         type: string
         default: ""
+      api_key:
+        type: string
+        default: ""
+      repo_dir:
+        type: string
+        default: ""
     steps:
       - run:
           name: run stackhawk
           command: |
-            echo "REPO_DIR: ${REPO_DIR}"
-            echo "API_KEY: ${API_KEY}"
+            export REPO_DIR=<< parameters.repo_dir >>"
+            export API_KEY=<< parameters.api_key >>"
+            echo "REPO_DIR: $REPO_DIR"
+            echo "API_KEY: $API_KEY"
             cd ./<< parameters.target_app_name >>
             shawk stackhawk.yml
 
@@ -57,6 +65,8 @@ jobs:
             env
       - run-stackhawk:
           target_app_name: backend-service
+          api_key: "${HAWK_API_KEY}"
+          repo_dir: "${CIRCLE_WORKING_DIRECTORY}"
           
 workflows:
   hawkscan-test:
