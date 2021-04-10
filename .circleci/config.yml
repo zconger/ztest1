@@ -45,8 +45,6 @@ jobs:
       - image: stackhawk/hawkscan:latest
     environment:
       ENV_NAME: "ci"
-      API_KEY: "${HAWK_API_KEY}"
-      REPO_DIR: "${CIRCLE_WORKING_DIRECTORY}"
     resource_class: small
     steps:
       - run:
