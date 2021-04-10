@@ -16,8 +16,8 @@ commands:
       - run:
           name: run stackhawk
           command: |
-            export REPO_DIR=<< parameters.repo_dir >>"
-            export API_KEY=<< parameters.api_key >>"
+            export REPO_DIR=<< parameters.repo_dir >>
+            export API_KEY=<< parameters.api_key >>
             echo "REPO_DIR: $REPO_DIR"
             echo "API_KEY: $API_KEY"
             cd ./<< parameters.target_app_name >>
