@@ -78,6 +78,7 @@ jobs:
             echo "PATH=${PATH}"
             echo "API_KEY=${API_KEY}"
             echo "REPO_DIR=${REPO_DIR}"
+            echo "$(pwd)"
       - run:
           name: run stackhawk
           command: |
