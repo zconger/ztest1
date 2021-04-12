@@ -69,7 +69,11 @@ jobs:
 #           repo_dir: "${CIRCLE_WORKING_DIRECTORY}"
       - run:
           name: run stackhawk
-          command: shawk ./backend-service/stackhawk.yml
+          command: |
+            echo $ENV_NAME
+            echo $API_KEY
+            echo $REPO_DIR
+            shawk ./backend-service/stackhawk.yml
           
 workflows:
   hawkscan-test:
