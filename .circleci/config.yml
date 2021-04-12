@@ -83,6 +83,7 @@ jobs:
       - run:
           name: run stackhawk
           command: |
+            cd /zap
             shawk ./backend-service/stackhawk.yml
 
 
