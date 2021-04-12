@@ -45,30 +45,8 @@ jobs:
       - image: stackhawk/hawkscan:latest
     environment:
       ENV_NAME: "ci"
-      API_KEY: $HAWK_API_KEY
-      REPO_DIR: $CIRCLE_WORKING_DIRECTORY
     resource_class: small
     steps:
-      - run:
-          name: Run some diagnostics
-          command: |
-            pwd
-            ls
-            env
-            echo "PATH=${PATH}"
-      - attach_workspace:
-          at: .
-      - run:
-          name: Run more diagnostics
-          command: |
-            pwd
-            ls
-            env
-            echo "PATH=${PATH}"
-#       - run-stackhawk:
-#           target_app_name: backend-service
-#           api_key: "${HAWK_API_KEY}"
-#           repo_dir: "${CIRCLE_WORKING_DIRECTORY}"
       - run:
           name: set environment variables
           command: |
@@ -79,6 +57,29 @@ jobs:
             echo "API_KEY=${API_KEY}"
             echo "REPO_DIR=${REPO_DIR}"
             echo "$(pwd)"
+      - run:
+          name: Run some diagnostics
+          command: |
+            pwd
+            ls
+            env
+            echo "PATH=${PATH}"
+            whoami
+      - attach_workspace:
+          at: .
+      - run:
+          name: Run more diagnostics
+          command: |
+            pwd
+            ls
+            env
+            echo "PATH=${PATH}"
+            whoami
+#       - run-stackhawk:
+#           target_app_name: backend-service
+#           api_key: "${HAWK_API_KEY}"
+#           repo_dir: "${CIRCLE_WORKING_DIRECTORY}"
+
       - run:
           name: run stackhawk
           command: |
