@@ -15,7 +15,7 @@ commands:
             shawk << parameters.configs >>
 
 jobs:
-  extract-hawk:
+  checkout-repo:
     docker:
       - image: cimg/base:2021.04
     steps:
@@ -53,7 +53,7 @@ jobs:
 workflows:
   hawkscan-test:
     jobs:
-     - extract-hawk
+     - checkout-repo
      - scan-backend-service-stg:
          requires:
-           - extract-hawk
+           - checkout-repo
