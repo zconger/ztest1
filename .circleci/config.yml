@@ -38,22 +38,17 @@ jobs:
             echo 'export API_KEY=${HAWK_API_KEY}' >> $BASH_ENV
             echo 'export REPO_DIR=$(pwd)' >> $BASH_ENV
             source $BASH_ENV
-      - attach_workspace:
-          at: .
+      - checkout
+#       - attach_workspace:
+#           at: .
       - run-stackhawk:
           configs: backend-service/stackhawk.yml
-
-#       - run:
-#           name: run stackhawk
-#           command: |
-#             cd /zap
-#             shawk ./backend-service/stackhawk.yml
 
 
 workflows:
   hawkscan-test:
     jobs:
-     - checkout-repo
+#      - checkout-repo
      - scan-backend-service-stg:
-         requires:
-           - checkout-repo
+#          requires:
+#            - checkout-repo
