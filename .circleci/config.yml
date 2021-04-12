@@ -15,15 +15,15 @@ commands:
             shawk << parameters.configs >>
 
 jobs:
-  checkout-repo:
-    docker:
-      - image: cimg/base:2021.04
-    steps:
-      - checkout
-      - persist_to_workspace:
-          root: .
-          paths:
-            - .
+#   checkout-repo:
+#     docker:
+#       - image: cimg/base:2021.04
+#     steps:
+#       - checkout
+#       - persist_to_workspace:
+#           root: .
+#           paths:
+#             - .
 
   scan-backend-service-stg:
     docker:
