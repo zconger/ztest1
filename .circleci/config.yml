@@ -45,6 +45,8 @@ jobs:
       - image: stackhawk/hawkscan:latest
     environment:
       ENV_NAME: "ci"
+      API_KEY: $HAWK_API_KEY
+      REPO_DIR: $CIRCLE_WORKING_DIRECTORY
     resource_class: small
     steps:
       - run:
@@ -61,10 +63,13 @@ jobs:
             pwd
             ls
             env
-      - run-stackhawk:
-          target_app_name: backend-service
-          api_key: "${HAWK_API_KEY}"
-          repo_dir: "${CIRCLE_WORKING_DIRECTORY}"
+#       - run-stackhawk:
+#           target_app_name: backend-service
+#           api_key: "${HAWK_API_KEY}"
+#           repo_dir: "${CIRCLE_WORKING_DIRECTORY}"
+      - run:
+          name: run stackhawk
+          command: shawk ./backend-service/stackhawk.yml
           
 workflows:
   hawkscan-test:
