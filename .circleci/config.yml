@@ -51,7 +51,7 @@ jobs:
           name: set environment variables
           command: |
             echo 'export API_KEY=${HAWK_API_KEY}' >> $BASH_ENV
-            echo 'export REPO_DIR=${CIRCLE_WORKING_DIRECTORY}' >> $BASH_ENV
+            echo 'export REPO_DIR=$(pwd)' >> $BASH_ENV
             source $BASH_ENV
             echo "PATH=${PATH}"
             echo "API_KEY=${API_KEY}"
