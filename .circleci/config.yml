@@ -55,6 +55,7 @@ jobs:
             pwd
             ls
             env
+            echo "PATH=${PATH}"
       - attach_workspace:
           at: .
       - run:
@@ -63,18 +64,26 @@ jobs:
             pwd
             ls
             env
+            echo "PATH=${PATH}"
 #       - run-stackhawk:
 #           target_app_name: backend-service
 #           api_key: "${HAWK_API_KEY}"
 #           repo_dir: "${CIRCLE_WORKING_DIRECTORY}"
       - run:
+          name: set environment variables
+          command: |
+            echo 'export API_KEY=${HAWK_API_KEY}' >> $BASH_ENV
+            echo 'export REPO_DIR=${CIRCLE_WORKING_DIRECTORY}' >> $BASH_ENV
+            source $BASH_ENV
+            echo "PATH=${PATH}"
+            echo "API_KEY=${API_KEY}"
+            echo "REPO_DIR=${REPO_DIR}"
+      - run:
           name: run stackhawk
           command: |
-            echo $ENV_NAME
-            echo $API_KEY
-            echo $REPO_DIR
             shawk ./backend-service/stackhawk.yml
-          
+
+
 workflows:
   hawkscan-test:
     jobs:
