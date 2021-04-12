@@ -48,7 +48,7 @@ jobs:
 workflows:
   hawkscan-test:
     jobs:
-#      - checkout-repo
-     - scan-backend-service-stg:
+      - scan-backend-service-stg:
 #          requires:
 #            - checkout-repo
+#      - checkout-repo
