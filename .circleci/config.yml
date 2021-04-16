@@ -3,42 +3,27 @@ version: 2.1
 commands:
   run-stackhawk:
     parameters:
-      target_app_name:
+      configs:
+        description: HawkScan configuration files as a space-separated list
         type: string
-        default: ""
-      api_key:
-        type: string
-        default: ""
-      repo_dir:
-        type: string
-        default: ""
+        default: "stackhawk.yml"
     steps:
       - run:
           name: run stackhawk
           command: |
-            export REPO_DIR=<< parameters.repo_dir >>
-            export API_KEY=<< parameters.api_key >>
-            echo "REPO_DIR: $REPO_DIR"
-            echo "API_KEY: $API_KEY"
-            cd ./<< parameters.target_app_name >>
-            shawk stackhawk.yml
+            cd /zap
+            shawk << parameters.configs >>
 
 jobs:
-  extract-hawk:
-    docker:
-      - image: cimg/base:2021.04
-    steps:
-      - checkout
-      - run:
-          name: Run some diagnostics
-          command: |
-            pwd
-            ls
-            env
-      - persist_to_workspace:
-          root: .
-          paths:
-            - .
+#   checkout-repo:
+#     docker:
+#       - image: cimg/base:2021.04
+#     steps:
+#       - checkout
+#       - persist_to_workspace:
+#           root: .
+#           paths:
+#             - .
 
   scan-backend-service-stg:
     docker:
@@ -48,48 +33,22 @@ jobs:
     resource_class: small
     steps:
       - run:
-          name: set environment variables
+          name: Set HawkScan environment variables
           command: |
             echo 'export API_KEY=${HAWK_API_KEY}' >> $BASH_ENV
-            echo 'export REPO_DIR=${CIRCLE_WORKING_DIRECTORY}' >> $BASH_ENV
+            echo 'export REPO_DIR=$(pwd)' >> $BASH_ENV
             source $BASH_ENV
-            echo "PATH=${PATH}"
-            echo "API_KEY=${API_KEY}"
-            echo "REPO_DIR=${REPO_DIR}"
-            echo "$(pwd)"
-      - run:
-          name: Run some diagnostics
-          command: |
-            pwd
-            ls
-            env
-            echo "PATH=${PATH}"
-            whoami
-      - attach_workspace:
-          at: .
-      - run:
-          name: Run more diagnostics
-          command: |
-            pwd
-            ls
-            env
-            echo "PATH=${PATH}"
-            whoami
-#       - run-stackhawk:
-#           target_app_name: backend-service
-#           api_key: "${HAWK_API_KEY}"
-#           repo_dir: "${CIRCLE_WORKING_DIRECTORY}"
-
-      - run:
-          name: run stackhawk
-          command: |
-            shawk ./backend-service/stackhawk.yml
+      - checkout
+#       - attach_workspace:
+#           at: .
+      - run-stackhawk:
+          configs: backend-service/stackhawk.yml
 
 
 workflows:
   hawkscan-test:
     jobs:
-     - extract-hawk
-     - scan-backend-service-stg:
-         requires:
-           - extract-hawk
+      - scan-backend-service-stg
+#          requires:
+#            - checkout-repo
+#      - checkout-repo
