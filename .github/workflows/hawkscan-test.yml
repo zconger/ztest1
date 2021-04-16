@@ -13,6 +13,7 @@ jobs:
       - name: Fetch a token
         env:
           TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
+          TEST_USERNAME: ${{ secrets.TEST_USERNAME }}
         run: ./scripts/learninAuth.py
       - name: Echo token
         env:
