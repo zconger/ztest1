@@ -1,0 +1,9 @@
+openapi: 3.0.0
+paths:
+  /:
+    get:
+      summary: Returns the example.com main page
+      description: The example.com home page
+      responses:
+        '200':    # status code
+          description: the page
