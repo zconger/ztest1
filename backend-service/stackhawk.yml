@@ -2,3 +2,14 @@ app:
   applicationId: cd253c08-5140-4892-b3d3-b2a4bcc07f57
   host: http://example.com
   env: ${ENV:Develop}
+  openApiConf:
+    inline: |
+      openapi: 3.0.0
+      paths:
+        /:
+          get:
+            summary: Returns the example.com main page
+            description: The example.com home page
+            responses:
+              '200':    # status code
+                description: the page

@@ -15,16 +15,6 @@ commands:
             shawk << parameters.configs >>
 
 jobs:
-#   checkout-repo:
-#     docker:
-#       - image: cimg/base:2021.04
-#     steps:
-#       - checkout
-#       - persist_to_workspace:
-#           root: .
-#           paths:
-#             - .
-
   scan-backend-service-stg:
     docker:
       - image: stackhawk/hawkscan:latest
@@ -39,8 +29,6 @@ jobs:
             echo 'export REPO_DIR=$(pwd)' >> $BASH_ENV
             source $BASH_ENV
       - checkout
-#       - attach_workspace:
-#           at: .
       - run-stackhawk:
           configs: backend-service/stackhawk.yml
 
@@ -49,6 +37,3 @@ workflows:
   hawkscan-test:
     jobs:
       - scan-backend-service-stg
-#          requires:
-#            - checkout-repo
-#      - checkout-repo
