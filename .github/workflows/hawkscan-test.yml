@@ -1,0 +1,23 @@
+name: "Learnin Test Workflow"
+
+on:
+  push:
+
+jobs:
+  test-job:
+    name: "Learnin Test Job"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Fetch a token
+        env:
+          TEST_PASSWORD: {{ secrets.TEST_PASSWORD }}
+        run: ./scripts/learninAuth.py
+      - name: Run HawkScan
+        env:
+          ID_TOKEN: {{ env.ID_TOKEN }}
+        uses: stackhawk/hawkscan-action@v1.2.1
+        with:
+          apiKey: {{ secrets.HAWK_API_KEY }}
+          environmentVariables: ID_TOKEN
+          dryRun: true
