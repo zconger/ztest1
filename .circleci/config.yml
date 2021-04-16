@@ -27,6 +27,7 @@ jobs:
           command: |
             echo 'export API_KEY=${HAWK_API_KEY}' >> $BASH_ENV
             echo 'export REPO_DIR=$(pwd)' >> $BASH_ENV
+            echo 'export OPENAPI_DIR=$(pwd)' >> $BASH_ENV
             source $BASH_ENV
       - checkout
       - run-stackhawk:
