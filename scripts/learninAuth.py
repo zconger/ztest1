@@ -5,10 +5,11 @@ import os
 
 s = requests.Session()
 test_password = os.getenv('TEST_PASSWORD')
+test_username = os.getenv('TEST_USERNAME')
 
 url = "https://web-stage.learnin2432.com/auth/Account/Login?ReturnUrl=%2Fauth%2Fconnect%2Fauthorize%2Fcallback%3Fresponse_type%3Dtoken%2520id_token%26nonce%3D98765%26state%26client_id%3Dstackhawk%26scope%3Dopenid%26redirect_uri%3Dhttps%253A%252F%252Fjwt.ms"
 payload = {
-    "Email": "travis@learnin.com",
+    "Email": test_username,
     "Password": test_password,
 }
 
@@ -26,10 +27,3 @@ if os.getenv('GITHUB_ACTIONS') == 'true':
 
 print("For reference, here is the authentication token:")
 print(token)
-
-# import os
-#
-# test_password = os.getenv('TEST_PASSWORD')
-# token = "ThisIsMyNewToken!"
-#
-# print(test_password)
