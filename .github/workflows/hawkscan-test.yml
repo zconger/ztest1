@@ -14,6 +14,10 @@ jobs:
         env:
           TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
         run: ./scripts/learninAuth.py
+      - name: Echo token
+        env:
+          ID_TOKEN: ${{ env.ID_TOKEN }}
+        run: echo "${ID_TOKEN}"
       - name: Run HawkScan
         env:
           ID_TOKEN: ${{ env.ID_TOKEN }}
