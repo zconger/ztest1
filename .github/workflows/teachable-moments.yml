@@ -10,10 +10,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Run HawkScan
+#      - name: Run HawkScan
+#        env:
+#          HAWK_MEM: 3g
+#        uses: stackhawk/hawkscan-action@v1.2.1
+#        with:
+#          apiKey: ${{ secrets.HAWK_API_KEY }}
+#          environmentVariables: HAWK_MEM
+      - name: Run HawkScan with Normal Docker
         env:
-          HAWK_MEM: 3g
-        uses: stackhawk/hawkscan-action@v1.2.1
-        with:
-          apiKey: ${{ secrets.HAWK_API_KEY }}
-          environmentVariables: HAWK_MEM
+          API_KEY: ${{ secrets.HAWK_API_KEY }}
+        run: |
+          docker run --tty --rm --volume $(pwd):/hawk --env HAWK_MEM --env API_KEY --network host stackhawk/hawkscan:latest stackhawk.yml
