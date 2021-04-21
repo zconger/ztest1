@@ -22,8 +22,9 @@ jobs:
       - name: Run HawkScan
         env:
           ID_TOKEN: ${{ env.ID_TOKEN }}
+          HAWK_MEM: 3g
         uses: stackhawk/hawkscan-action@v1.2.1
         with:
           apiKey: ${{ secrets.HAWK_API_KEY }}
-          environmentVariables: ID_TOKEN
+          environmentVariables: ID_TOKEN HAWK_MEM
           dryRun: true
