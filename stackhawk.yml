@@ -1,7 +1,7 @@
 # stackhawk configuration for DVWA
 app:
   # An applicationId obtained from the StackHawk platform.
-  applicationId: d3414795-c804-4a89-9c27-04a9a4b0e2e5 # (required)
+  applicationId: cd77e383-a94d-45f2-b8cd-f5a895969820 # (required)
   # The environment for the applicationId defined in the StackHawk platform.
   env: Pre-Production # (required)
   # The url of your application to scan
