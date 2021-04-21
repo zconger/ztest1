@@ -6,6 +6,14 @@ app:
   env: Pre-Production # (required)
   # The url of your application to scan
   host: https://school.review-16.zeachable.cloud # (required)
+  includePaths:
+    - /
+    - /index.html
+    - /index.php
+    - /robots.txt
+    - /p
+    - /p/coaching
+    - /p/coaching/.*
   antiCsrfParam: authenticity_token
   authentication:
       loggedInIndicator: "\\QLog out\\E"
