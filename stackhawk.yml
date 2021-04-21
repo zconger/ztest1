@@ -1,0 +1,41 @@
+# stackhawk configuration for DVWA
+app:
+  # An applicationId obtained from the StackHawk platform.
+  applicationId: d3414795-c804-4a89-9c27-04a9a4b0e2e5 # (required)
+  # The environment for the applicationId defined in the StackHawk platform.
+  env: Pre-Production # (required)
+  # The url of your application to scan
+  host: https://school.review-16.zeachable.cloud # (required)
+  antiCsrfParam: authenticity_token
+  authentication:
+      loggedInIndicator: "\\QLog out\\E"
+      loggedOutIndicator: "\\QLog in\\E"
+      usernamePassword:
+          type: FORM
+          loginPath: /sign_in
+          usernameField: user_email
+          passwordField: user_password
+          scanUsername: eoin@teachable.com
+          scanPassword: didit4lulz
+          otherParams:
+              - name: commit
+                val: 'Log+In'
+              - name: utf8
+                val: '%E2%9C%93'
+              - name: authenticity_token
+                val: 'dgxx%2Bh9nXBIh1Qz6frvVooIV0XwEhZmyQpV2s9z0hap0qo9028ld5L7a62iloS32c4CYSq8%2BytnNaOuYPdihRQ%3D%3D'
+              - name: user%5Bschool_id%5D
+                val: '1'
+
+      cookieAuthorization:
+          cookieNames:
+              - sessionid
+      testPath:
+          path: /mysettings
+          fail: ".*302.*Location:.*/login.*"
+hawkAddOn:
+  replacer:
+    rules:
+      - matchString: "User-Agent"
+        replacement: "StackHawk"
+        replaceOnly: false
