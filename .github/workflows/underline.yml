@@ -1,0 +1,17 @@
+name: _Underline_
+
+on:
+  pushes: main
+
+jobs:
+  thingtester:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Save a variable
+        run: |
+          echo "COUNTRY=$(curl -s http://api.zippopotam.us/us/80202 | jq -r .country)" >> $GITHUB_ENV
+          cat $GITHUB_ENV
+      - name: Echo back that variable
+        env:
+          COUNTRY: ${{ env.COUNTRY }}
+        run: echo "COUNTRY=$COUNTRY"
