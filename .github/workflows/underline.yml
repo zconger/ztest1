@@ -1,8 +1,7 @@
-name: _Underline_
+name: Underline
 
 on:
-  pushes:
-    - main
+  push:
 
 jobs:
   thingtester:
