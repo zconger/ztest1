@@ -12,6 +12,6 @@ jobs:
           echo "COUNTRY=$(curl -s http://api.zippopotam.us/us/80202 | jq -r .country)" >> $GITHUB_ENV
           cat $GITHUB_ENV
       - name: Echo back that variable
-        env:
-          COUNTRY: ${{ env.COUNTRY }}
+#         env:
+#           COUNTRY: ${{ env.COUNTRY }}
         run: echo "COUNTRY=$COUNTRY"
