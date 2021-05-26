@@ -15,3 +15,5 @@ jobs:
 #         env:
 #           COUNTRY: ${{ env.COUNTRY }}
         run: echo "COUNTRY=$COUNTRY"
+      - name: Show all the env vars
+        run: env
