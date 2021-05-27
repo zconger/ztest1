@@ -17,6 +17,6 @@ jobs:
         with:
           apiKey: ${{ secrets.HAWK_API_KEY }}
           environmentVariables: HAWK_MEM
-          congiruationFiles: |
+          configurationFiles: |
             stackhawk-example.yml
           codeScanningAlerts: true
