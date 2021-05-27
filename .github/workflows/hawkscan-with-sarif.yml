@@ -1,0 +1,22 @@
+name: "HawkScan SARIF Tester"
+
+on:
+  push:
+
+jobs:
+  test-job:
+    name: "HawkScan SARIF Tester"
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run HawkScan
+        env:
+          HAWK_MEM: 3g
+        uses: stackhawk/hawkscan-action@feature/sarif-option
+        with:
+          apiKey: ${{ secrets.HAWK_API_KEY }}
+          environmentVariables: HAWK_MEM
+          congiruationFiles: |
+            stackhawk-example.yml
+          codeScanningAlerts: true
