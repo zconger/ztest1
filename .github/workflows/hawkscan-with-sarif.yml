@@ -20,4 +20,4 @@ jobs:
           configurationFiles: |
             stackhawk-example.yml
           codeScanningAlerts: true
-          githubToken == ${{ github.token }}
+          githubToken: ${{ github.token }}
