@@ -13,6 +13,8 @@ jobs:
       - name: Run HawkScan
         env:
           HAWK_MEM: 3g
+          ACTIONS_RUNNER_DEBUG: true
+          ACTIONS_STEP_DEBUG: true
         uses: stackhawk/hawkscan-action@feature/sarif-option
         with:
           apiKey: ${{ secrets.HAWK_API_KEY }}
