@@ -34,7 +34,15 @@
           "level":"note",
           "locations":[
             {
-              "id":1
+              "id":1,
+              "physicalLocation":{
+                "region":{
+                  "startLine":1
+                },
+                "artifactLocation":{
+                  "uri":"nofile"
+                }
+              }
             }
           ],
           "message":{
