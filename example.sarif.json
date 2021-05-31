@@ -33,17 +33,7 @@
         {
           "level":"note",
           "locations":[
-            {
-              "id":1,
-              "physicalLocation":{
-                "region":{
-                  "startLine":1
-                },
-                "artifactLocation":{
-                  "uri":"stackhawk-example.yml"
-                }
-              }
-            }
+
           ],
           "message":{
             "text":"StackHawk found issues that meet or exceed your failure threshold (`hawk.failureThreshold=medium`).\nSee [Scan Results](TEST/scans/8d87bd39-130c-49ee-8ae0-b7c4b7151fa8) for more details."
