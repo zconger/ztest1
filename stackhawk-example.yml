@@ -4,6 +4,6 @@ app:
   host: http://example.com
 
 hawk:
-  failureThreshold: medium
+  failureThreshold: high
   spider:
     base: false
