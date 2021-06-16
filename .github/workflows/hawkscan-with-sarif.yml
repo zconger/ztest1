@@ -15,11 +15,11 @@ jobs:
           HAWK_MEM: 3g
           ACTIONS_RUNNER_DEBUG: true
           ACTIONS_STEP_DEBUG: true
-        uses: stackhawk/hawkscan-action@feature/sarif-option
+        uses: stackhawk/hawkscan-action@v1.3.0
         with:
           apiKey: ${{ secrets.HAWK_API_KEY }}
           environmentVariables: HAWK_MEM
           configurationFiles: |
             stackhawk-example.yml
-#           codeScanningAlerts: true
-#           githubToken: ${{ github.token }}
+          codeScanningAlerts: true
+          githubToken: ${{ github.token }}
