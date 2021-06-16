@@ -10,9 +10,9 @@
 # To use this workflow, you must:
 #
 # 1.  Create an API Key and Application: Sign up for a free StackHawk account to obtain an API Key and
-#     create your first app and configuration file at https://app.stackhawk.com
+#     create your first app and configuration file at https://app.stackhawk.com.
 #
-# 2.  Save your API Key as a Secret: Save your API key as a GitHub Secret named HAWK_API_KEY
+# 2.  Save your API Key as a Secret: Save your API key as a GitHub Secret named HAWK_API_KEY.
 #
 # 3.  Add your Config File: Add your stackhawk.yml configuration file to the base of your repository directory.
 #
@@ -23,9 +23,7 @@
 #
 # 5.  Update the "Start your service" Step: Update the "Start your service" step in the StackHawk workflow below to
 #     start your service so that it can be scanned with the "Run HawkScan" step.
-#
-# 6.  Remove the dryRun Option: Remove the 'dryRun' option, or set it to false, in the "Run HawkScan" step. When
-#     'dryRun' is set to true, hawkscan-action will print out the command it would have run, and then exit.
+
 
 name: "StackHawk HawkScan"
 
@@ -51,7 +49,6 @@ jobs:
       - name: Run HawkScan
         uses: stackhawk/hawkscan-action@v1.3.0
         with:
-          dryRun: true                            # ✏️ Remove the dryRun option to enable HawkScan to run
           apiKey: ${{ secrets.HAWK_API_KEY }}
           codeScanningAlerts: true
           githubToken: ${{ github.token }}
