@@ -18,7 +18,7 @@ jobs:
         uses: stackhawk/hawkscan-action@v1.3.0
         with:
           apiKey: ${{ secrets.HAWK_API_KEY }}
-          dryRun: true
+#           dryRun: true
           environmentVariables: HAWK_MEM
           configurationFiles: |
             stackhawk-example.yml
