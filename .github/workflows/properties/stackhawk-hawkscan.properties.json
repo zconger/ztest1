@@ -1,0 +1,24 @@
+{
+  "name": "StackHawk HawkScan",
+  "creator": "StackHawk",
+  "description": "Integrate dynamic application security testing (DAST) into your CI pipeline",
+  "iconName": "stackhawk-hawkscan",
+  "categories": [
+    "Code Scanning",
+    "C",
+    "C#",
+    "C++",
+    "Go",
+    "Java",
+    "JavaScript",
+    "Kotlin",
+    "Objective C",
+    "PHP",
+    "Python",
+    "Ruby",
+    "Rust",
+    "Scala",
+    "Swift",
+    "TypeScript"
+  ]
+}
