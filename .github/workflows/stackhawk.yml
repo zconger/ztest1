@@ -3,9 +3,11 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-# The StackHawk HawkScan GitHub Action makes it easy to integrate dynamic application security testing (DAST) into your
+#           🦅 STACKHAWK        https://stackhawk.com
+
+# The StackHawk HawkScan action makes it easy to integrate dynamic application security testing (DAST) into your
 # CI pipeline. See the Getting Started guide (https://docs.stackhawk.com/hawkscan/) to get up and running with
-# StackHawk quickly!
+# StackHawk quickly.
 
 # To use this workflow, you must:
 #
@@ -25,11 +27,11 @@
 #     start your service so that it can be scanned with the "Run HawkScan" step.
 
 
-name: "StackHawk HawkScan"
+name: "StackHawk"
 
 on:
   push:
-#     branches: [ $default-branch, $protected-branches ]
+#    branches: [ $default-branch, $protected-branches ]
   pull_request:
 #    branches: [ $default-branch ]
 #  schedule:
@@ -50,6 +52,6 @@ jobs:
         uses: stackhawk/hawkscan-action@v1.3.0
         continue-on-error: true                   # ✏️ Set to false to break your build on scan errors
         with:
-          apiKey: ${{ secrets.HHHAWK_API_KEY }}
+          apiKey: ${{ secrets.HAWK_API_KEY }}
           codeScanningAlerts: true
           githubToken: ${{ github.token }}
