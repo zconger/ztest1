@@ -48,7 +48,7 @@ jobs:
 
       - name: Run HawkScan
         uses: stackhawk/hawkscan-action@v1.3.0
-        continue_on_error: true                   # ✏️ Set to false to break your build on scan errors
+        continue-on-error: true                   # ✏️ Set to false to break your build on scan errors
         with:
           apiKey: ${{ secrets.HAWK_API_KEY }}
           codeScanningAlerts: true
