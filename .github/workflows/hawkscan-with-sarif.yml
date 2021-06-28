@@ -15,7 +15,7 @@ jobs:
           HAWK_MEM: 3g
           ACTIONS_RUNNER_DEBUG: true
           ACTIONS_STEP_DEBUG: true
-        uses: stackhawk/hawkscan-action@v1.3.0
+        uses: stackhawk/hawkscan-action@4c3258cd62248dac6d9fe91dd8d45928c697dee0
         with:
           apiKey: ${{ secrets.HAWK_API_KEY }}
 #           dryRun: true
