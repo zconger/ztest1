@@ -53,7 +53,7 @@ phases:
 #    run-as: Linux-user-name
     on-failure: ABORT
     commands:
-      - docker run -e API_KEY -it --rm -v $(pwd):/hawk:rw stackhawk/hawkscan:latest
+      - docker run -e API_KEY -t --rm -v $(pwd):/hawk:rw stackhawk/hawkscan:latest stackhawk-example.yml
 #      - command
 #    finally:
 #      - command
