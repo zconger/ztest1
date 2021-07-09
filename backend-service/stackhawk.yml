@@ -2,6 +2,7 @@ app:
   applicationId: ${ID:cd253c08-5140-4892-b3d3-b2a4bcc07f57}
   host: http://example.com
   env: ${ENV:Develop}
+  autoPolicy: true
   openApiConf:
     filePath: backend-service/api.yml
 #    inline: |
